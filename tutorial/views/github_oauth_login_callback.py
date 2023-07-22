@@ -6,18 +6,18 @@ from django.urls import reverse
 from rest_framework.authtoken.models import Token
 from rest_framework.views import APIView
 
-from tutorial.utils import google_callback
+from tutorial.utils import github_callback
 
 
-class GoogleOAuth2LoginCallbackView(APIView):
+class GitHubOAuth2LoginCallbackView(APIView):
     def get(self, request):
-        redirect_uri = request.build_absolute_uri(reverse("google_login_callback"))
+        redirect_uri = request.build_absolute_uri(reverse("github_login_callback"))
         auth_uri = request.build_absolute_uri()
 
-        user_data = google_callback(redirect_uri, auth_uri)
+        user_data = github_callback(redirect_uri, auth_uri)
 
         try:
-            user = User.objects.get(username=user_data["email"])
+            user = User.objects.get(username=user_data["login"])
         except User.DoesNotExist:
             return JsonResponse(
                 {"error": "User does not exist. Please sign up first."}, status=400
