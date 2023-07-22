@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "sslserver",
     "rest_framework",
+    "rest_framework.authtoken",
     "tutorial.apps.TutorialConfig",
 ]
 

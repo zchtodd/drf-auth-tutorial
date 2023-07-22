@@ -9,9 +9,9 @@ from rest_framework.views import APIView
 from tutorial.utils import google_callback
 
 
-class GoogleOAuth2SignUpCallbackView(APIView):
+class GoogleOAuth2LoginCallbackView(APIView):
     def get(self, request):
-        redirect_uri = request.build_absolute_uri(reverse("google_signup_callback"))
+        redirect_uri = request.build_absolute_uri(reverse("google_login_callback"))
         auth_uri = request.build_absolute_uri()
 
         user_data = google_callback(redirect_uri, auth_uri)
