@@ -107,6 +107,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 GOOGLE_CLIENT_ID = os.environ["GOOGLE_CLIENT_ID"]
 GOOGLE_CLIENT_SECRET = os.environ["GOOGLE_CLIENT_SECRET"]
+GOOGLE_TOKEN_URL = "https://www.googleapis.com/oauth2/v4/token"
+GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth"
+
+GITHUB_CLIENT_ID = os.environ["GITHUB_CLIENT_ID"]
+GITHUB_CLIENT_SECRET = os.environ["GITHUB_CLIENT_SECRET"]
+GITHUB_TOKEN_URL = "https://github.com/login/oauth/access_token"
+GITHUB_AUTH_URL = "https://github.com/login/oauth/authorize"
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/

@@ -1,11 +1,30 @@
 from django.urls import path
 
-from .views.oauth_signup import OAuth2SignupView
-from .views.oauth_signup_callback import OAuth2SignupCallbackView
+from .views.google_oauth_signup import GoogleOAuth2SignUpView
+from .views.google_oauth_signup_callback import GoogleOAuth2SignUpCallbackView
+from .views.google_oauth_login import GoogleOAuth2LoginView
+from .views.google_oauth_login_callback import GoogleOAuth2LoginCallbackView
+
+from .views.github_oauth_signup import GitHubOAuth2SignUpView
+from .views.github_oauth_signup_callback import GitHubOAuth2SignUpCallbackView
 
 urlpatterns = [
-    path("signup", OAuth2SignupView.as_view(), name="signup"),
+    path("signup/google/", GoogleOAuth2SignUpView.as_view(), name="google_signup"),
     path(
-        "signup/callback/", OAuth2SignupCallbackView.as_view(), name="signup_callback"
+        "signup/google/callback/",
+        GoogleOAuth2SignUpCallbackView.as_view(),
+        name="google_signup_callback",
+    ),
+    path("login/google/", GoogleOAuth2LoginView.as_view(), name="google_login"),
+    path(
+        "login/google/callback/",
+        GoogleOAuth2LoginCallbackView.as_view(),
+        name="google_login_callback",
+    ),
+    path("signup/github/", GitHubOAuth2SignUpView.as_view(), name="github_signup"),
+    path(
+        "signup/github/callback/",
+        GitHubOAuth2SignUpCallbackView.as_view(),
+        name="github_signup_callback",
     ),
 ]
